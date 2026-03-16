@@ -7,7 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:prime_deals/app.dart';
+import 'package:prime_deals/app/app.dart';
 
 import 'package:prime_deals/main.dart';
 
