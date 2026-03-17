@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:prime_deals/app/app_theme_data.dart';
+import 'package:prime_deals/features/auth/ui/screens/email_verification_screen.dart';
 import 'package:prime_deals/features/auth/ui/screens/splash_screen.dart';
 
-class PrimeDeals extends StatefulWidget {
+class PrimeDeals extends StatelessWidget {
   const PrimeDeals({super.key});
 
   @override
-  State<PrimeDeals> createState() => _PrimeDealsState();
-}
-
-class _PrimeDealsState extends State<PrimeDeals> {
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: AppThemeData.lightThemeData,
+      darkTheme: AppThemeData.darkThemeData,
       initialRoute: '/',
-      routes: {'/': (context) => SplashScreen()},
+      routes: {
+        '/': (context) => const SplashScreen(),
+        EmailVerificationScreen.name: (context) =>
+            const EmailVerificationScreen(),
+      },
     );
   }
 }

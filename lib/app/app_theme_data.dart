@@ -6,9 +6,20 @@ class AppThemeData {
     return ThemeData(
       colorSchemeSeed: AppColor.themeColor,
       scaffoldBackgroundColor: Colors.white,
-      progressIndicatorTheme: ProgressIndicatorThemeData(
+      progressIndicatorTheme: const ProgressIndicatorThemeData(
         color: AppColor.themeColor,
       ),
+      appBarTheme: const AppBarTheme(color: Colors.white),
+    );
+  }
+
+  static ThemeData get darkThemeData {
+    return ThemeData(
+      colorSchemeSeed: AppColor.themeColor,
+      progressIndicatorTheme: const ProgressIndicatorThemeData(
+        color: AppColor.themeColor,
+      ),
+      brightness: Brightness.dark,
     );
   }
 }

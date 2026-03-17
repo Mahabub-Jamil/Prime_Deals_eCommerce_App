@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prime_deals/app.dart';
+import 'package:prime_deals/app/app.dart';
 
 void main() {
-  runApp(PrimeDeals());
+  runApp(const PrimeDeals());
 }
