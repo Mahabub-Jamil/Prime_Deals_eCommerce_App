@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:prime_deals/app/asset_path.dart';
 import 'package:prime_deals/features/auth/ui/screens/email_verification_screen.dart';
+import 'package:prime_deals/features/auth/ui/widgets/app_logo_widget.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -32,9 +31,10 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(),
-              SvgPicture.asset(AssetPath.splashLogoSvg, width: 140),
+              AppLogoWidget(),
               const Spacer(),
               const CircularProgressIndicator(),
+              const SizedBox(height: 12),
               Text(
                 "version 1.0",
                 style: TextStyle(fontSize: 12, color: Colors.grey),
