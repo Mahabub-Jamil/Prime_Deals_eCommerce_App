@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prime_deals/app/app_colors.dart';
+import 'package:prime_deals/features/auth/ui/screens/oTP_verification_screen.dart';
 import 'package:prime_deals/features/auth/ui/widgets/app_logo_widget.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
@@ -55,7 +56,10 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 const SizedBox(height: 12),
                 ElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {}
+                    Navigator.pushReplacementNamed(
+                      context,
+                      OTPVerificationScreen.name,
+                    );
                   },
                   child: Text("Next"),
                 ),

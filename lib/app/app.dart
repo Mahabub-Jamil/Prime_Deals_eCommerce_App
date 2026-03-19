@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prime_deals/app/app_theme_data.dart';
 import 'package:prime_deals/features/auth/ui/screens/email_verification_screen.dart';
+import 'package:prime_deals/features/auth/ui/screens/oTP_verification_screen.dart';
 import 'package:prime_deals/features/auth/ui/screens/splash_screen.dart';
 
 class PrimeDeals extends StatelessWidget {
@@ -17,6 +18,7 @@ class PrimeDeals extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         EmailVerificationScreen.name: (context) =>
             const EmailVerificationScreen(),
+        OTPVerificationScreen.name: (context) => const OTPVerificationScreen(),
       },
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prime_deals/app/app_colors.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 class AppThemeData {
   static ThemeData get lightThemeData {
@@ -47,6 +48,20 @@ class AppThemeData {
           textStyle: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
         ),
       ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(foregroundColor: AppColor.themeColor),
+      ),
+      extensions: [
+        MaterialPinThemeExtension(
+          theme: MaterialPinTheme(
+            fillColor: Colors.white,
+            borderColor: AppColor.themeColor,
+            focusedBorderColor: Colors.green,
+            focusedFillColor: Colors.white,
+            filledBorderColor: AppColor.themeColor,
+          ),
+        ),
+      ],
     );
   }
 
