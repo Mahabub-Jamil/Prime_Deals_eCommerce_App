@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:prime_deals/app/app_colors.dart';
 import 'package:prime_deals/features/auth/ui/widgets/app_logo_widget.dart';
+import 'package:get/get.dart';
 
 class OTPVerificationScreen extends StatefulWidget {
   const OTPVerificationScreen({super.key});
@@ -15,6 +18,24 @@ class OTPVerificationScreen extends StatefulWidget {
 class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
   final PinInputController _otpTEController = PinInputController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  final RxInt _remainingTime = 10.obs;
+  late Timer timer;
+
+  @override
+  void initState() {
+    super.initState();
+    startResendCodeTime();
+  }
+
+  void startResendCodeTime() {
+    timer = Timer.periodic(const Duration(seconds: 1), (t) {
+      _remainingTime.value--;
+      if (_remainingTime.value < 1) {
+        t.cancel();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,16 +82,18 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                 ),
                 const SizedBox(height: 24),
                 // TODO: enable button when 120s is done and invisible the text
-                RichText(
-                  text: TextSpan(
-                    text: 'This code will expire in ',
-                    style: TextStyle(color: Colors.grey),
-                    children: [
-                      TextSpan(
-                        text: '120s',
-                        style: TextStyle(color: AppColor.themeColor),
-                      ),
-                    ],
+                Obx(
+                  () => RichText(
+                    text: TextSpan(
+                      text: 'This code will expire in ',
+                      style: TextStyle(color: Colors.grey),
+                      children: [
+                        TextSpan(
+                          text: '${_remainingTime.value}s',
+                          style: TextStyle(color: AppColor.themeColor),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 TextButton(onPressed: () {}, child: const Text('Resend Code')),
@@ -85,6 +108,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
   @override
   void dispose() {
     super.dispose();
+    timer.cancel();
     _otpTEController.dispose();
   }
 }
