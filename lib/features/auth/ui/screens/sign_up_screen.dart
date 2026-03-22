@@ -12,7 +12,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Column(children: [Text("Sign Up")]),
+      body: Column(
+        children: [
+          Text("Sign Up"),
+          Text("Sign Up"),
+          Text("Sign Up"),
+          Text("Sign Up"),
+        ],
+      ),
     );
   }
 }
