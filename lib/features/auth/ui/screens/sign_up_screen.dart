@@ -15,9 +15,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: Column(
         children: [
           Text("Sign Up"),
-          Text("Sign Up"),
-          Text("Sign Up"),
-          Text("Sign Up"),
+          SizedBox(height: 12),
+          TextFormField(
+            decoration: InputDecoration(hintText: 'Enter First name'),
+          ),
+          SizedBox(height: 12),
+          TextFormField(
+            decoration: InputDecoration(hintText: 'Enter last name'),
+          ),
+          SizedBox(height: 12),
+          TextFormField(
+            decoration: InputDecoration(hintText: 'Enter email address'),
+          ),
+          SizedBox(height: 12),
+          TextFormField(
+            decoration: InputDecoration(hintText: 'Enter mobile number'),
+          ),
+          SizedBox(height: 12),
+          TextFormField(
+            decoration: InputDecoration(hintText: 'Enter your name'),
+          ),
+          SizedBox(height: 12),
         ],
       ),
     );
