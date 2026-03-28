@@ -36,6 +36,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             decoration: InputDecoration(hintText: 'Enter your name'),
           ),
           SizedBox(height: 12),
+          ElevatedButton(onPressed: () {}, child: Text("Sign Up")),
         ],
       ),
     );
